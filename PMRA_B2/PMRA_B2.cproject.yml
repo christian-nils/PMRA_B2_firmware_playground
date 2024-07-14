@@ -1,0 +1,22 @@
+# A project translates into one executable or library.
+project:
+
+  groups:
+    - group: Source Files
+      files:
+        - file: ./main.c
+
+  # List components to use for your application.
+  # A software component is a re-usable unit that may be configurable.
+  components:
+    - component: ARM::CMSIS:CORE
+    - component: Device:Startup
+    - component: GigaDevice::Device:GD32F30x_libopt
+    - component: GigaDevice::Device:GD32F30x_StdPeripherals:RCU@2.2.0
+    - component: GigaDevice::Device:GD32F30x_StdPeripherals:PMU@2.2.0
+    - component: GigaDevice::Device:GD32F30x_StdPeripherals:MISC@2.2.0
+    - component: GigaDevice::Device:GD32F30x_StdPeripherals:GPIO@2.2.0
+    - component: GigaDevice::Device:GD32F30x_StdPeripherals:EXTI@2.2.0
+    - component: GigaDevice::Device:GD32F30x_StdPeripherals:USART@2.1.0
+  packs:
+    - pack: GigaDevice::GD32F30x_DFP@2.2.1

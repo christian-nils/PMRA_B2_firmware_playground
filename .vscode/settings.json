@@ -1,0 +1,14 @@
+{
+  "files.associations": {
+    "gd32f30x.h": "c"
+  },
+  "cmsis-csolution.actions": [
+    {
+      "path": "PMRA.csolution.yml",
+      "target": "GD32F303ZE",
+      "config": {
+        "run": "Flash Device"
+      }
+    }
+  ]
+}
