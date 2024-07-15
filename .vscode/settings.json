@@ -1,13 +1,23 @@
 {
   "files.associations": {
-    "gd32f30x.h": "c"
+    "pmra_b2.h": "c",
+    "gd32f30x_misc.h": "c"
   },
   "cmsis-csolution.actions": [
     {
-      "path": "PMRA.csolution.yml",
+      "path": "PMRA_B2_bis.csolution.yml",
       "target": "GD32F303ZE",
       "config": {
+        "debug": "Arm Debugger",
         "run": "Flash Device"
+      }
+    },
+    {
+      "path": "PMRA_B2.csolution.yml",
+      "target": "GD32F303ZE",
+      "config": {
+        "run": "Flash Device",
+        "debug": "Arm Debugger"
       }
     }
   ]

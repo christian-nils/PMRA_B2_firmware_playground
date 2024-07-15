@@ -5,18 +5,39 @@ project:
     - group: Source Files
       files:
         - file: ./main.c
+    - group: Include Files
+      files:
+        - file: ./Include/pmra_b2.h
 
   # List components to use for your application.
   # A software component is a re-usable unit that may be configurable.
   components:
     - component: ARM::CMSIS:CORE
-    - component: Device:Startup
     - component: GigaDevice::Device:GD32F30x_libopt
-    - component: GigaDevice::Device:GD32F30x_StdPeripherals:RCU@2.2.0
-    - component: GigaDevice::Device:GD32F30x_StdPeripherals:PMU@2.2.0
-    - component: GigaDevice::Device:GD32F30x_StdPeripherals:MISC@2.2.0
-    - component: GigaDevice::Device:GD32F30x_StdPeripherals:GPIO@2.2.0
-    - component: GigaDevice::Device:GD32F30x_StdPeripherals:EXTI@2.2.0
-    - component: GigaDevice::Device:GD32F30x_StdPeripherals:USART@2.1.0
+    - component: GigaDevice::Device:Startup
+    - component: GigaDevice::Device:GD32F30x_StdPeripherals:ADC
+    - component: GigaDevice::Device:GD32F30x_StdPeripherals:BKP
+    - component: GigaDevice::Device:GD32F30x_StdPeripherals:CAN
+    - component: GigaDevice::Device:GD32F30x_StdPeripherals:CRC
+    - component: GigaDevice::Device:GD32F30x_StdPeripherals:CTC
+    - component: GigaDevice::Device:GD32F30x_StdPeripherals:DAC
+    - component: GigaDevice::Device:GD32F30x_StdPeripherals:DBG
+    - component: GigaDevice::Device:GD32F30x_StdPeripherals:DMA
+    - component: GigaDevice::Device:GD32F30x_StdPeripherals:ENET
+    - component: GigaDevice::Device:GD32F30x_StdPeripherals:EXMC
+    - component: GigaDevice::Device:GD32F30x_StdPeripherals:EXTI
+    - component: GigaDevice::Device:GD32F30x_StdPeripherals:FMC
+    - component: GigaDevice::Device:GD32F30x_StdPeripherals:FWDGT
+    - component: GigaDevice::Device:GD32F30x_StdPeripherals:GPIO
+    - component: GigaDevice::Device:GD32F30x_StdPeripherals:I2C
+    - component: GigaDevice::Device:GD32F30x_StdPeripherals:MISC
+    - component: GigaDevice::Device:GD32F30x_StdPeripherals:PMU
+    - component: GigaDevice::Device:GD32F30x_StdPeripherals:RCU
+    - component: GigaDevice::Device:GD32F30x_StdPeripherals:RTC
+    - component: GigaDevice::Device:GD32F30x_StdPeripherals:SDIO
+    - component: GigaDevice::Device:GD32F30x_StdPeripherals:SPI_I2S
+    - component: GigaDevice::Device:GD32F30x_StdPeripherals:TIMER
+    - component: GigaDevice::Device:GD32F30x_StdPeripherals:USART
+    - component: GigaDevice::Device:GD32F30x_StdPeripherals:WWDGT
   packs:
-    - pack: GigaDevice::GD32F30x_DFP@2.2.1
+    - pack: GigaDevice::GD32F30x_DFP@2.2.3

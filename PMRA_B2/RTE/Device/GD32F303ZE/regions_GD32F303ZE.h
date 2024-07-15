@@ -4,7 +4,7 @@
 
 //-------- <<< Use Configuration Wizard in Context Menu >>> --------------------
 
-// <n>Device pack:   GigaDevice::GD32F30x_DFP@2.2.1
+// <n>Device pack:   GigaDevice::GD32F30x_DFP@2.2.3
 // <i>Device pack used to generate this file
 
 // <h>ROM Configuration
