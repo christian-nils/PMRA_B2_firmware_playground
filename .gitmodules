@@ -1,3 +1,0 @@
-[submodule "PMRA_B2/Lib/threadx"]
-	path = PMRA_B2/Lib/threadx
-	url = https://github.com/eclipse-threadx/threadx
