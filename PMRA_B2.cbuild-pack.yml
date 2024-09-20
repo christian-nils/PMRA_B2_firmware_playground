@@ -6,3 +6,6 @@ cbuild-pack:
     - resolved-pack: GigaDevice::GD32F30x_DFP@2.2.3
       selected-by-pack:
         - GigaDevice::GD32F30x_DFP@2.2.3
+    - resolved-pack: NXP::AZURE_RTOS@2.0.0
+      selected-by-pack:
+        - NXP::AZURE_RTOS@2.0.0

@@ -8,9 +8,20 @@ project:
     - group: Include Files
       files:
         - file: ./Include/pmra_b2.h
+    - group: ThreadX Core
+      files:
+        - file: ./Lib/threadx/common/inc/tx_api.h
+      add-path:
+        - ./Lib/threadx/common/inc
+    - group: ThreadX Port
+      files:
+        - file: ./Lib/threadx/ports/cortex_m4/ac6/inc/tx_port.h
+      add-path:
+        - ./Lib/threadx/ports/cortex_m4/ac6/inc
+      
 
-  # List components to use for your application.
-  # A software component is a re-usable unit that may be configurable.
+    # List components to use for your application.
+    # A software component is a re-usable unit that may be configurable.
   components:
     - component: ARM::CMSIS:CORE
     - component: GigaDevice::Device:GD32F30x_libopt
@@ -41,3 +52,4 @@ project:
     - component: GigaDevice::Device:GD32F30x_StdPeripherals:WWDGT
   packs:
     - pack: GigaDevice::GD32F30x_DFP@2.2.3
+    - pack: NXP::AZURE_RTOS@2.0.0

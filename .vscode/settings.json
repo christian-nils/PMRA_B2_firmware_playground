@@ -1,7 +1,11 @@
 {
   "files.associations": {
     "pmra_b2.h": "c",
-    "gd32f30x_misc.h": "c"
+    "gd32f30x_misc.h": "c",
+    "tx_api.h": "c",
+    "gd32f30x_gpio.h": "c",
+    "rte_components.h": "c",
+    "tx_port.h": "c"
   },
   "cmsis-csolution.actions": [
     {

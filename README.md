@@ -24,3 +24,8 @@ To flash, you need to create a device in the "Device manager". Write `GigaDevice
 
 Blink a LED!
 It works using the debugger for now. Will introduce a delay function later.
+
+## Some notes about code examples...
+
+Some code example specific to the GD32F30x chip can be found on the official website's Downloads section (look for Firmware Library), so old versions are available at https://github.com/CommunityGD32Cores/gigadevice-firmware-and-docs/tree/main/GD32F30x also.
+
