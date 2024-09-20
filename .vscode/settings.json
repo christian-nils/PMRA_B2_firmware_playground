@@ -22,7 +22,20 @@
       "config": {
         "run": "Flash Device",
         "debug": "Arm Debugger"
-      }
+      },
+      "projects": [
+        {
+          "path": "PMRA_B2/PMRA_B2.cproject.yml",
+          "config": {
+            "debug": "Arm Debugger",
+            "run": "Flash Device"
+          }
+        }
+      ]
     }
-  ]
+  ],
+  "C_Cpp.codeAnalysis.clangTidy.checks.disabled": [
+    "clang-diagnostic-error"
+  ],
+  "C_Cpp.errorSquiggles": "disabled"
 }

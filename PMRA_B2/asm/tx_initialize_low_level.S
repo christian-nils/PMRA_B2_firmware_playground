@@ -95,7 +95,7 @@ _tx_initialize_low_level:
 @    /* Set base of available memory to end of non-initialised RAM area.  */
 @
     LDR     r0, =_tx_initialize_unused_memory       @ Build address of unused memory pointer
-    LDR     r1, =Image$$ARM_LIB_STACK$$ZI$$Limit @ Build first free address
+    LDR     r1, =Image$$ARM_LIB_HEAP$$ZI$$Limit @ Build first free address
     ADD     r1, r1, #4                              @
     STR     r1, [r0]                                @ Setup first unused memory pointer
 @
