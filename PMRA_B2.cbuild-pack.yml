@@ -9,6 +9,3 @@ cbuild-pack:
     - resolved-pack: Microsoft::AzureRTOS-ThreadX@1.0.0
       selected-by-pack:
         - Microsoft::AzureRTOS-ThreadX@1.0.0
-    - resolved-pack: NXP::AZURE_RTOS@2.0.0
-      selected-by-pack:
-        - NXP::AZURE_RTOS@2.0.0

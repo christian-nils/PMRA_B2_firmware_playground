@@ -7,13 +7,7 @@ project:
         - file: ./main.c
         - file: ./asm/tx_initialize_low_level.S
       add-path:
-        - ./include
-          #   - ./Lib/threadx/ports/cortex_m4/ac6/inc
-        
-    # - group: include Files
-    #   files:
-    #     - file: ./include/pmra_b2.h
-          
+        - ./include         
 
     # List components to use for your application.
     # A software component is a re-usable unit that may be configurable.
