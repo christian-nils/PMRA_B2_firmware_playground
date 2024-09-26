@@ -5,12 +5,12 @@ project:
     - group: Source Files
       files:
         - file: ./main.c
-    - group: Include Files
-      files:
-        - file: ./Include/pmra_b2.h
+        - file: ./asm/tx_initialize_low_level.S
+      add-path:
+        - ./include         
 
-  # List components to use for your application.
-  # A software component is a re-usable unit that may be configurable.
+    # List components to use for your application.
+    # A software component is a re-usable unit that may be configurable.
   components:
     - component: ARM::CMSIS:CORE
     - component: GigaDevice::Device:GD32F30x_libopt
@@ -39,5 +39,7 @@ project:
     - component: GigaDevice::Device:GD32F30x_StdPeripherals:TIMER
     - component: GigaDevice::Device:GD32F30x_StdPeripherals:USART
     - component: GigaDevice::Device:GD32F30x_StdPeripherals:WWDGT
+    - component: Microsoft::RTOS&ThreadX:ThreadX:Core
   packs:
     - pack: GigaDevice::GD32F30x_DFP@2.2.3
+    - pack: Microsoft::AzureRTOS-ThreadX@1.0.0 # see https://github.com/eclipse-threadx/cmsis-packs, to be installed manually

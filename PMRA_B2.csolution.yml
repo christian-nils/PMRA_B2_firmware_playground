@@ -14,6 +14,7 @@ solution:
     - type: GD32F303ZE
       device: GigaDevice::GD32F303ZE
 
+
   # List of different build configurations.
   build-types:
     - type: Debug

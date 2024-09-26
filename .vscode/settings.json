@@ -1,7 +1,11 @@
 {
   "files.associations": {
     "pmra_b2.h": "c",
-    "gd32f30x_misc.h": "c"
+    "gd32f30x_misc.h": "c",
+    "tx_api.h": "c",
+    "gd32f30x_gpio.h": "c",
+    "rte_components.h": "c",
+    "tx_port.h": "c"
   },
   "cmsis-csolution.actions": [
     {
@@ -18,7 +22,20 @@
       "config": {
         "run": "Flash Device",
         "debug": "Arm Debugger"
-      }
+      },
+      "projects": [
+        {
+          "path": "PMRA_B2/PMRA_B2.cproject.yml",
+          "config": {
+            "debug": "Arm Debugger",
+            "run": "Flash Device"
+          }
+        }
+      ]
     }
-  ]
+  ],
+  "C_Cpp.codeAnalysis.clangTidy.checks.disabled": [
+    "clang-diagnostic-error"
+  ],
+  "C_Cpp.errorSquiggles": "disabled"
 }
