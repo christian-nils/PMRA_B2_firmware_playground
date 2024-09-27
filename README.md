@@ -29,3 +29,6 @@ It works using the debugger for now. Will introduce a delay function later.
 
 Some code example specific to the GD32F30x chip can be found on the official website's Downloads section (look for Firmware Library), so old versions are available at https://github.com/CommunityGD32Cores/gigadevice-firmware-and-docs/tree/main/GD32F30x also.
 
+
+
+Install `arm-none-eabi-gcc-cs-c++`, `arm-none-eabi-gcc-cs` and `arm-none-eabi-newlib` (Fedora) if there are problems with missing compilers or if you have errors related to `#include_next stdlib.h`.

@@ -1,14 +1,27 @@
 # A project translates into one executable or library.
 project:
-
+  
+  executes:   # see https://github.com/Open-CMSIS-Pack/cmsis-toolbox/blob/main/docs/build-operation.md#cmake-integration
+    - execute: Build MicroROS
+      run: ${CMAKE_COMMAND} -G Ninja -S ${INPUT} -B ${CMAKE_CURRENT_BINARY_DIR}/lib/microros && ${CMAKE_COMMAND} --build ${CMAKE_CURRENT_BINARY_DIR}/lib/microros
+      always:
+      input:
+        - ./lib/microros    # CMake script directory
+      output:
+        - ./main.c  # Output file 
+      
+        
   groups:
     - group: Source Files
       files:
         - file: ./main.c
         - file: ./asm/tx_initialize_low_level.S
       add-path:
-        - ./include         
-
+        - ./include     
+        
+    # - group: Library
+    #   files: 
+    #     - file: $cmse-lib($lib/microros$)
     # List components to use for your application.
     # A software component is a re-usable unit that may be configurable.
   components:

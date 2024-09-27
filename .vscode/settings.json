@@ -37,5 +37,6 @@
   "C_Cpp.codeAnalysis.clangTidy.checks.disabled": [
     "clang-diagnostic-error"
   ],
-  "C_Cpp.errorSquiggles": "disabled"
+  "C_Cpp.errorSquiggles": "disabled",
+  "cmake.sourceDirectory": "/projects/Repos/PMRA_B2/custom_firmware/PMRA_B2/PMRA_B2/lib/microros"
 }
