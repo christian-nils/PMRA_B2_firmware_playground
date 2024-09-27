@@ -10,13 +10,6 @@
       "cmsisPack": "${command:cmsis-csolution.getTargetPack}",
       "deviceName": "${command:cmsis-csolution.getDeviceName}",
       "processorName": "${command:cmsis-csolution.getProcessorName}"
-    },
-    {
-      "name": "CMake: CMake Configure",
-      "type": "cmake",
-      "request": "launch",
-      "cmakeDebugType": "configure",
-      "scriptPath": "${file}"
     }
   ]
 }

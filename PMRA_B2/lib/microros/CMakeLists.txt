@@ -1,9 +1,7 @@
 cmake_minimum_required(VERSION 3.13 FATAL_ERROR)
 set(CMAKE_C_STANDARD 99)
 
-set(CMAKE_TOOLCHAIN_FILE "/projects/Repos/PMRA_B2/custom_firmware/PMRA_B2/PMRA_B2/lib/microros/cmake/arm-gcc-cortex-m4.cmake")
-set(CMAKE_SYSTEM_PROCESSOR cortex-m4)
-set(CPU Cortex-M4)
+set(CMAKE_TOOLCHAIN_FILE ${CMAKE_CURRENT_LIST_DIR}/cmake/arm-gcc-cortex-m4.cmake)
 
 include(cmake/utilities.cmake)
 

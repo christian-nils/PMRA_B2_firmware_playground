@@ -1,6 +1,9 @@
 # A project translates into one executable or library.
 project:
-  
+  # misc:
+  #   - for-compiler: AC6
+      # C: [--diag-warning=6242]
+
   executes:   # see https://github.com/Open-CMSIS-Pack/cmsis-toolbox/blob/main/docs/build-operation.md#cmake-integration
     - execute: Build MicroROS
       run: ${CMAKE_COMMAND} -G Ninja -S ${INPUT} -B ${CMAKE_CURRENT_BINARY_DIR}/lib/microros && ${CMAKE_COMMAND} --build ${CMAKE_CURRENT_BINARY_DIR}/lib/microros
@@ -8,16 +11,30 @@ project:
       input:
         - ./lib/microros    # CMake script directory
       output:
-        - ./main.c  # Output file 
-      
+        - ./lib/microros/libmicroros.a  # Output file       
         
   groups:
     - group: Source Files
       files:
         - file: ./main.c
         - file: ./asm/tx_initialize_low_level.S
+        - file: ./lib/microros/libmicroros.a
       add-path:
         - ./include     
+        - ./lib/microros/micro_ros_src/install/include
+        - ./lib/microros/micro_ros_src/install/include/action_msgs
+        - ./lib/microros/micro_ros_src/install/include/builtin_interfaces
+        - ./lib/microros/micro_ros_src/install/include/rcl
+        - ./lib/microros/micro_ros_src/install/include/rcutils
+        - ./lib/microros/micro_ros_src/install/include/rcl_action
+        - ./lib/microros/micro_ros_src/install/include/rmw
+        - ./lib/microros/micro_ros_src/install/include/rosidl_dynamic_typesupport
+        - ./lib/microros/micro_ros_src/install/include/rosidl_typesupport_interface
+        - ./lib/microros/micro_ros_src/install/include/rosidl_runtime_c
+        - ./lib/microros/micro_ros_src/install/include/service_msgs
+        - ./lib/microros/micro_ros_src/install/include/std_msgs
+        - ./lib/microros/micro_ros_src/install/include/type_description_interfaces
+        - ./lib/microros/micro_ros_src/install/include/unique_identifier_msgs
         
     # - group: Library
     #   files: 

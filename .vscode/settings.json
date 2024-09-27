@@ -5,7 +5,11 @@
     "tx_api.h": "c",
     "gd32f30x_gpio.h": "c",
     "rte_components.h": "c",
-    "tx_port.h": "c"
+    "tx_port.h": "c",
+    "rmw_microros.h": "c",
+    "rclc.h": "c",
+    "executor.h": "c",
+    "int32.h": "c"
   },
   "cmsis-csolution.actions": [
     {
