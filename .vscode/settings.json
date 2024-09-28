@@ -9,7 +9,12 @@
     "rmw_microros.h": "c",
     "rclc.h": "c",
     "executor.h": "c",
-    "int32.h": "c"
+    "int32.h": "c",
+    "cmsis_utils.h": "c",
+    "gd32f30x_usart.h": "c",
+    "config.h": "c",
+    "microros_transports.h": "c",
+    "transport.h": "c"
   },
   "cmsis-csolution.actions": [
     {

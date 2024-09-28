@@ -1,12 +1,11 @@
-#include "gd32f30x_gpio.h"
 #include "pmra_b2.h"
-#include "tx_api.h"
 
 #include <rclc/rclc.h>
 #include <rclc/executor.h>
 #include <std_msgs/msg/int32.h>
 #include <rmw_microros/rmw_microros.h>
 
+#include <microros_transports.h>
 #include "cmsis_utils.h"
 
 #define AZURE_THREAD_STACK_SIZE 4096 * 2
@@ -54,12 +53,6 @@ void timer_callback(rcl_timer_t *timer, int64_t last_call_time)
 
 void microros_thread(ULONG parameter)
 {
-  // FIXME: Initialize the serial communication
-  // if (stm32_network_init(WIFI_SSID, WIFI_PSK, WPA2_PSK_AES) != NX_SUCCESS)
-  // {
-  //   printf("Failed to initialize the network\r\n");
-  //   return;
-  // }
 
   rcl_allocator_t allocator = rcl_get_default_allocator();
 
@@ -117,21 +110,22 @@ void tx_application_define(void *first_unused_memory)
 {
   systick_interval_set(TX_TIMER_TICKS_PER_SECOND);
 
-  // // Configure micro-ROS Serial Agent
-  // static custom_transport_args args = {
-  //   .agent_ip_address = IP_ADDRESS(192,168,1,57),
-  //   .agent_port = 8888
-  // };
+  // Configure micro-ROS Serial Agent, using USART0 which is the only accessible UART on the mainboard.
+  static serial_transport_args serial_comm_args = {
+      .baud_rate = 115200U,
+      .parity = USART_PM_NONE,
+      .stop_bits = USART_STB_1BIT,
+      .word_length = USART_WL_8BIT};
 
   printf("\r\nStarting micro-ROS thread\r\n\r\n");
 
-  // rmw_uros_set_custom_transport(
-  //     false,
-  //     (void *)&args,
-  //     azure_transport_open,
-  //     azure_transport_close,
-  //     azure_transport_write,
-  //     azure_transport_read);
+  rmw_uros_set_custom_transport(
+      true,
+      (void *)&serial_comm_args,
+      serial_transport_open,
+      serial_transport_close,
+      serial_transport_write,
+      serial_transport_read);
 
   // Create Azure thread
   UINT status = tx_thread_create(&azure_thread,
