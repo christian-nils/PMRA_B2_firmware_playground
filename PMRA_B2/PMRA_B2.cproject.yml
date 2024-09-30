@@ -18,8 +18,11 @@ project:
       files:
         - file: ./main.c
         - file: ./asm/tx_initialize_low_level.S
+        - file: ./asm/startup_gd32f30x_hd.S
         - file: ./lib/microros/libmicroros.a
         - file: ./src/microros_transports.c
+        - file: ./src/microros_time.c
+        - file: ./src/newlib_nano.c
       add-path:
         - ./include     
         - ./lib/microros/micro_ros_src/install/include

@@ -1,9 +1,11 @@
-cmake_minimum_required(VERSION 3.13 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.21 FATAL_ERROR)
 set(CMAKE_C_STANDARD 99)
 
 set(CMAKE_TOOLCHAIN_FILE ${CMAKE_CURRENT_LIST_DIR}/cmake/arm-gcc-cortex-m4.cmake)
 
 include(cmake/utilities.cmake)
+
+# cmake_policy(SET CMP0123 NEW)
 
 project(MicroROS C ASM)
 
