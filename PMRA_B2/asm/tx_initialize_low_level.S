@@ -8,6 +8,7 @@
 @ * SPDX-License-Identifier: MIT
 @ **************************************************************************/
 @
+@ Downloaded from https://raw.githubusercontent.com/eclipse-threadx/threadx/refs/heads/master/ports/cortex_m4/gnu/example_build/tx_initialize_low_level.S
 @
 @/**************************************************************************/
 @/**************************************************************************/
@@ -22,10 +23,12 @@
 @
     .global     _tx_thread_system_stack_ptr
     .global     _tx_initialize_unused_memory
+    .global     __HeapLimit
     .global     _tx_timer_interrupt
     .global     __main
     .global     __tx_SVCallHandler
     .global     __tx_PendSVHandler
+    .global     __Vectors
     .global     __tx_NMIHandler                     @ NMI
     .global     __tx_BadHandler                     @ HardFault
     .global     __tx_SVCallHandler                  @ SVCall
@@ -45,7 +48,7 @@ SYSTICK_CYCLES    =   ((SYSTEM_CLOCK / 100) -1)
 @/*                                                                        */
 @/*  FUNCTION                                               RELEASE        */
 @/*                                                                        */
-@/*    _tx_initialize_low_level                          Cortex-M4/AC6     */
+@/*    _tx_initialize_low_level                          Cortex-M4/GNU     */
 @/*                                                           6.1          */
 @/*  AUTHOR                                                                */
 @/*                                                                        */
@@ -79,7 +82,11 @@ SYSTICK_CYCLES    =   ((SYSTEM_CLOCK / 100) -1)
 @/*                                                                        */
 @/*    DATE              NAME                      DESCRIPTION             */
 @/*                                                                        */
-@/*  09-30-2020     William E. Lamie         Initial Version 6.1           */
+@/*  05-19-2020     William E. Lamie         Initial Version 6.0           */
+@/*  09-30-2020     William E. Lamie         Modified Comment(s), fixed    */
+@/*                                            GNU assembly comment,       */
+@/*                                            cleaned up whitespace,      */
+@/*                                            resulting in version 6.1    */
 @/*                                                                        */
 @/**************************************************************************/
 @VOID   _tx_initialize_low_level(VOID)
@@ -95,20 +102,20 @@ _tx_initialize_low_level:
 @    /* Set base of available memory to end of non-initialised RAM area.  */
 @
     LDR     r0, =_tx_initialize_unused_memory       @ Build address of unused memory pointer
-    LDR     r1, =Image$$ARM_LIB_HEAP$$ZI$$Limit @ Build first free address
+    LDR     r1, =__HeapLimit                        @ Build first free address
     ADD     r1, r1, #4                              @
     STR     r1, [r0]                                @ Setup first unused memory pointer
 @
 @    /* Setup Vector Table Offset Register.  */
 @
     MOV     r0, #0xE000E000                         @ Build address of NVIC registers
-    LDR     r1, =__Vectors                       @ Pickup address of vector table
+    LDR     r1, =__Vectors                          @ Pickup address of vector table
     STR     r1, [r0, #0xD08]                        @ Set vector table address
 @
 @    /* Set system stack pointer from vector value.  */
 @
     LDR     r0, =_tx_thread_system_stack_ptr        @ Build address of system stack pointer
-    LDR     r1, =__Vectors                       @ Pickup address of vector table
+    LDR     r1, =__Vectors                           @ Pickup address of vector table
     LDR     r1, [r1]                                @ Pickup reset stack pointer
     STR     r1, [r0]                                @ Save system stack pointer
 @

@@ -1,8 +1,9 @@
 # A solution is a collection of related projects that share same base configuration.
-solution:
+solution:      
+        
   created-for: CMSIS-Toolbox@2.0.0
   cdefault:
-  compiler: AC6
+  compiler: GCC
 
   # List the packs that define the device and/or board.
   packs:
